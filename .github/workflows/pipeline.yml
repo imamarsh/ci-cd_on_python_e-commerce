@@ -43,16 +43,8 @@ jobs:
         run: |
           python manage.py test
 
-
-name: Docker Build
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
   docker-build:
+    needs: build-test
     runs-on: ubuntu-latest
 
     steps:
