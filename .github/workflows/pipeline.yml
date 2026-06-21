@@ -44,7 +44,7 @@ jobs:
           python manage.py test
 
   docker-build:
-    needs: build-test
+    
     runs-on: ubuntu-latest
 
     steps:
