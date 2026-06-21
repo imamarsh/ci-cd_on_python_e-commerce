@@ -46,6 +46,11 @@ jobs:
 
 name: Docker Build
 
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   docker-build:
     runs-on: ubuntu-latest
