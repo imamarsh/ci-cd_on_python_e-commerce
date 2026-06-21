@@ -52,3 +52,14 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t pyshop:${{ github.sha }} .
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push
+        run: |
+            docker build -t imamarsh/pyshop:latest .
+            docker push imamarsh/pyshop:latest
